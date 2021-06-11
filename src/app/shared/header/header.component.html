@@ -1,0 +1,11 @@
+<div class="header">
+    <img src="assets/images/company-logo1.png" style="height: 45px;" alt="">
+    <div class="header-right">
+        <a class="gc" [routerLink]="['./','home']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a class="gc" [routerLink]="['./','about']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">About</a>
+        <a class="gc" *ngIf="logoutLink" [routerLink]="['./','gallery']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">Gallary</a>
+        <a class="userId gc" *ngIf="logoutLink">User: {{userData?.userid}}</a>
+        <a class="login gc" *ngIf="!logoutLink" (click)="loginClicked.next()">Login</a>
+        <a class="logout gc" *ngIf="logoutLink" (click)="logout()">Logout</a>
+    </div>
+</div>

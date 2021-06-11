@@ -1,0 +1,40 @@
+<div class="card-header main-search">
+    <div class="row">
+        <div class="col-12 col-md-3 col-xl-3">
+            <input [(ngModel)]="searchData" class="AutoFocus form-control" placeholder="Please enter image type..." type="text">
+        </div>
+        <div class="col-4 col-md-2 col-xl-1">
+            <input type="button" (click)="search()" value="Search" class="btn btn-primary search-btn">
+        </div>
+    </div>
+    <div class="row pt-3" *ngIf="completePhotList.length">
+        <div class="col-2 col-md-2 col-xl-1">
+            <button type="button" class="btn btn-primary" (click)="pagination('delete')">Previous</button>
+        </div>
+        <div class="col-8 col-md-8 col-xl-9" style="text-align: center;">
+            Page {{pageIndex +1}}
+        </div>
+        <div class="ml-auto">
+            <button type="button" class="btn btn-primary" style="width: 90px;" (click)="pagination('add')">Next</button>
+        </div>
+    </div>
+    <div class="row pt-3" *ngIf="!completePhotList.length">
+        <div class="col-12 col-md-12 col-xl-12" style="text-align: center;">
+            <h2 style="color: #ae5529;">
+                Please enter any image category and click on search button, thank you.
+            </h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let pic of photos" class="col-sm-4">
+            <div style="margin-top: 10px;" class="card">
+                <img class="card-img-top" [src]="pic.src.landscape" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Photo credit: {{pic.photographer}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

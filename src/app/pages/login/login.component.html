@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h4 class="modal-title" translate>Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div style="text-align: center;">
+        <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+            <input type="email" class="form-control" formControlName="userid" autocomplete="email" [placeholder]="'Enter your email address'" id="login" class="fadeIn second" name="login" placeholder="login" />
+            <div [hidden]="loginForm.controls.userid.untouched || loginForm.controls.userid.valid"><small class="text-danger">*Email required</small></div>
+            <input type="password" class="form-control mb-0" formControlName="password" autocomplete="current-password" [placeholder]="'Enter your email password'" required id="password" class="fadeIn third" name="login" placeholder="password">
+            <div [hidden]="loginForm.controls.password.untouched || loginForm.controls.password.valid"><small class="text-danger">*Password required</small></div>
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+    </div>
+</div>
